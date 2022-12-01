@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #define MAXSIZE 200
 
 
@@ -12,24 +12,28 @@ private:
 	int next(int i) { return (i + 1) % size; }
 public:
 	myqueue() {
-		myqueue(MAXSIZE);
-	}
-	myqueue(int s) {
-		size = s;
-		p = new T[size];
+		size = MAXSIZE;
+		p = new T[MAXSIZE];
 		int end = 0;
 		int start = next(end);
 	}
-	bool empty() { return (next(end) == start); }
+
+	bool empty() { return (end == start); }
 	bool full() { return (next(next(end)) == start); }
 	T front() {
 		if (empty()) {
 			throw - 1;
 		}
-		return &p[start];
+		return p[next(start)];
 	}
-	int size() {
-		return (start - end);
+	int getsize() {
+		int sz = 0;
+		int ind = start;
+		while (ind != end){
+			sz++;
+			ind = next(ind);
+		}
+		return sz;
 	}
 	void push(T a) {
 		if (full()) { throw - 1; }
@@ -37,8 +41,8 @@ public:
 		p[end] = a;
 	}
 	void pop() {
-		if (empty()){throw -1}
-		end -= 1;
+		if (empty()) { throw - 1; }
+		start =next(start);
 	}
 };
 

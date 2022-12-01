@@ -33,7 +33,7 @@ public:
 		}
 		return false;
 	}
-	int size() {
+	int getsize() {
 		return (size + 1);
 	}
 	T top() {

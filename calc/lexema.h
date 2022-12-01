@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "stack.h"
+#include "stack.h" 
 #include "queue.h"
 
 using namespace std;
@@ -26,7 +26,7 @@ public:
 	}
 	string getStr() { return str; }
 	TypeElement getType() { return type; }
-	friend ostream& operator << (ostream& out, Lexema& p) {
+	friend ostream& operator << (ostream& out, Lexema p) {
 		out << "{" << p.str << ", ";
 		if (p.type == Operation) {
 			out << "operation";

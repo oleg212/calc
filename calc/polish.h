@@ -71,7 +71,7 @@ string calc(myqueue <Lexema> q)
 	double ans;
 	int i = 0;
 	mystack <double> counter;
-	while (res.size() >= 1) {
+	while (res.getsize() >= 1) {
 		if (res.front().getType() == Value) {
 			counter.push(stod(res.front().getStr()));
 		}
